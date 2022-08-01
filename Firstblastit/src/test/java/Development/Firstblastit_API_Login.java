@@ -34,7 +34,7 @@
 			
 			RestAssured.baseURI=("https://dev.firstblastit.com");
 			RequestSpecification request = RestAssured.given();
-			fl = new FileInputStream("C:\\Users\\Sparkout QA\\eclipse-workspace\\Firstblastit\\Data\\API_Data.xlsx");
+			fl = new FileInputStream("C:\\Users\\Sparkout QA\\git\\FirstBlastit_API\\Firstblastit\\Data\\API_Data.xlsx");
 			System.out.println("Sheet path " + fl);
 			wb = new XSSFWorkbook(fl);
 			 st = wb.getSheet("Login");
@@ -62,6 +62,7 @@
 		    Assert.assertTrue(responsebody.contains("authId"));
 		    Assert.assertTrue(responsebody.contains("email"));
 	        String   Response_email = js.get("email");
+	        System.out.println("resulted:" +Response_email);
 	        boolean  onllj = responsebody.contains("null");
 			if(onllj = responsebody.contains("null")){
 	        System.out.println("Registered User");}
@@ -73,7 +74,7 @@
 			 cell1.setCellValue(responsebody);
 			 Cell cell2=so.createCell(4);
 			cell2.setCellValue(Get_Authorization);
-			FileOutputStream fileOut = new FileOutputStream("C:\\\\Users\\\\Sparkout QA\\\\eclipse-workspace\\\\Firstblastit\\\\Data\\\\API_Data.xlsx");
+			FileOutputStream fileOut = new FileOutputStream("C:\\Users\\Sparkout QA\\git\\FirstBlastit_API\\Firstblastit\\Data\\API_Data.xlsx");
 			wb.write(fileOut);
 			//fileOut.close();
 		}
